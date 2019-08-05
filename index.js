@@ -21,23 +21,27 @@ app.get("/", async (req, res) => {
   try {
     const frizes = await Friz.find();
 
-    return res.json(frizes);
+    const frizList = await FrizItem.find();
+
+    const dataToSend = { frizes: frizes, frizList: frizList };
+
+    return res.json(dataToSend);
   } catch (error) {
     console.log(error);
     res.status(400).json("Couldn't find your freezer list.");
   }
 });
 
-app.get("/frizlist", async (req, res) => {
-  try {
-    const frizList = await FrizItem.find();
+// app.get("/frizlist", async (req, res) => {
+//   try {
+//     const frizList = await FrizItem.find();
 
-    return res.status(200).json(frizList);
-  } catch (error) {
-    console.log(error);
-    res.status(400).json("Couldn't find your freezer item list.");
-  }
-});
+//     return res.status(200).json(frizList);
+//   } catch (error) {
+//     console.log(error);
+//     res.status(400).json("Couldn't find your freezer item list.");
+//   }
+// });
 
 app.post("/create", async (req, res) => {
   try {

@@ -28,6 +28,17 @@ app.get("/", async (req, res) => {
   }
 });
 
+app.get("/frizlist", async (req, res) => {
+  try {
+    const frizList = await FrizItem.find();
+
+    return res.status(200).json(frizList);
+  } catch (error) {
+    console.log(error);
+    res.status(400).json("Couldn't find your freezer item list.");
+  }
+});
+
 app.post("/create", async (req, res) => {
   try {
     const friz = new Friz({

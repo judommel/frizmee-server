@@ -15,7 +15,7 @@ mongoose.connect(
 );
 
 
-const frizRoutes = require("./routes/frizRoutes");
+const frizRoutes = require("./routes/friz-routes");
 app.use(frizRoutes);
 
 const tipRoutes = require("./routes/tip-routes");

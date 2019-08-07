@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
-const Friz = require("./models/Friz");
-const FrizItem = require("./models/FrizItem");
+const Friz = require("../models/Friz");
+const FrizItem = require("../models/FrizItem");
 
 router.get("/", async (req, res) => {
     try {

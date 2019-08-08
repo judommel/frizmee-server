@@ -4,7 +4,7 @@ const router = express.Router();
 const FrizTip = require("../models/FrizTip");
 
 
-router.use("/friztips", async (req, res) => {
+router.get("/friztips", async (req, res) => {
 
     try {
     const tips = await FrizTip.find()
@@ -18,7 +18,7 @@ router.use("/friztips", async (req, res) => {
     
     })
     
-    router.use("/friztips/create", async (req, res) => {
+    router.post("/friztips/create", async (req, res) => {
     
         try {
         const tip = new FrizTip({
@@ -40,7 +40,7 @@ router.use("/friztips", async (req, res) => {
             res.json({ message : error})
         }   })
     
-        router.use("/friztips/delete", async (req, res) => {
+        router.post("/friztips/delete", async (req, res) => {
     
             try {
             const tip = await FrizTip.findById({
@@ -59,7 +59,7 @@ router.use("/friztips", async (req, res) => {
                 res.json({ message : error})
             }   })
     
-            router.use("/friztips/update", async (req, res) => {
+            router.post("/friztips/update", async (req, res) => {
     
                 try {
                 const tip = await FrizTip.findById({
